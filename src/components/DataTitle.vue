@@ -1,8 +1,7 @@
 <template>
     <div class="text-center">
-        <h2 class="text-3xl font-bold">{{ modifiedDate }}</h2>
-        {{ text }}
-        
+        <h2 class="text-3xl font-bold">{{ title }}</h2>
+        <p class="text-xl pt-4">{{ modifiedDate }}</p>
     </div>
 </template>
 
@@ -14,20 +13,12 @@ export default {
     // Props
     props: {
         date: String,
+        title: String,
     },
-    // Component state
-    data() {
-        return {
-            text: 'opgg'
-        }
-    },
+    // Computed attributes do not need to call the function
     computed: {
         modifiedDate() {
-
-            return (() => {
-                return 'opgg'
-            })()
-            
+            return moment(this.date).format('MMMM Do YYYY, h:mm:ss a')
         }
     },
     methods: {
