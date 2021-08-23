@@ -5,8 +5,8 @@
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"lint": "eslint **/*.{vue,js} --ignore-path .gitignore --fix",
-		"lint:fix": "prettier-eslint '**/*.js' --write"
+		"lint": "eslint **/*.{vue,js} --ignore-path .gitignore",
+		"lint:fix": "eslint **/*.{vue,js} --ignore-path .gitignore --fix"
 	},
 	"dependencies": {
 		"@tailwindcss/postcss7-compat": "^2.0.2",
@@ -23,30 +23,14 @@
 		"@vue/cli-plugin-router": "~4.5.0",
 		"@vue/cli-service": "~4.5.0",
 		"@vue/compiler-sfc": "^3.0.0",
+		"babel-eslint": "^10.1.0",
 		"eslint": "^7.32.0",
 		"eslint-config-google": "^0.14.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^3.4.1",
 		"eslint-plugin-vue": "^7.16.0",
 		"prettier": "^1.19.1",
-		"prettier-eslint": "^13.0.0",
 		"prettier-eslint-cli": "^5.0.1",
 		"vue-cli-plugin-tailwind": "~2.0.6"
-	},
-	"eslintConfig": {
-		"root": true,
-		"env": {
-			"node": true
-		},
-		"extends": [
-			"plugin:vue/essential",
-			"eslint:recommended"
-		],
-		"parserOptions": {
-			"parser": "babel-eslint"
-		},
-		"rules": {
-			"vue/no-multiple-template-root": "off"
-		}
 	}
 }
