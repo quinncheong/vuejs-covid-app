@@ -1,15 +1,15 @@
 <template>
   <main v-if="!loading">
     <DataTitle 
-      :date='dataDate'
-      :title='title'
+      :date="dataDate"
+      :title="title"
     />
     <DataBoxes 
-      :stats='stats'
+      :stats="stats"
     />
     <CountrySelect 
-      :countries='countries'
-      @get-country='getCountryData'
+      :countries="countries"
+      @get-country="getCountryData"
     />
 
     <button 
@@ -21,9 +21,18 @@
     </button>
   </main>
 
-  <main class="flex flex-col align-center justify-center text-center" v-else>
-    <div class="text-gray-500 text-3xl mt-10 mb-6">Fetching Data</div>
-    <img :src="loadingImage" class="w-24 m-auto" alt="" />
+  <main
+    v-else
+    class="flex flex-col align-center justify-center text-center"
+  >
+    <div class="text-gray-500 text-3xl mt-10 mb-6">
+      Fetching Data
+    </div>
+    <img
+      :src="loadingImage"
+      class="w-24 m-auto"
+      alt=""
+    >
   </main>
 </template>
 
@@ -50,6 +59,17 @@ export default {
       loadingImage: require('../assets/hourglass.gif')
     }
   },
+  async created() {
+    const data = await this.fetchCovidData();
+
+    // console.log(data)
+
+    // Setting the state
+    this.dataDate = data.Date;
+    this.stats = data.Global;
+    this.countries = data.Countries;
+    this.loading = false;
+  },
   methods: {
     async fetchCovidData() {
       const res = await fetch('https://api.covid19api.com/summary');
@@ -74,17 +94,6 @@ export default {
       this.loading = false;
 
     }
-  },
-  async created() {
-    const data = await this.fetchCovidData();
-
-    // console.log(data)
-
-    // Setting the state
-    this.dataDate = data.Date;
-    this.stats = data.Global;
-    this.countries = data.Countries;
-    this.loading = false;
   }
 }
 </script>

@@ -1,8 +1,12 @@
 <template>
-    <div class="text-center">
-        <h2 class="text-3xl font-bold">{{ title }}</h2>
-        <p class="text-xl pt-4">{{ modifiedDate }}</p>
-    </div>
+  <div class="text-center">
+    <h2 class="text-3xl font-bold">
+      {{ title }}
+    </h2>
+    <p class="text-xl pt-4">
+      {{ modifiedDate }}
+    </p>
+  </div>
 </template>
 
 <script>

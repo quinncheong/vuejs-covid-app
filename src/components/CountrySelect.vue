@@ -1,12 +1,19 @@
 <template>
-    <select 
-        @change="onChange"
-        v-model="selected" 
-        class=" mt-5 block w-full border p-3 rounded outline-none"
+  <select 
+    v-model="selected"
+    class=" mt-5 block w-full border p-3 rounded outline-none" 
+    @change="onChange"
+  >
+    <option value="0">
+      Select Country
+    </option>
+    <option
+      v-for="country in countries"
+      :value="country.ID"
     >
-        <option value="0">Select Country</option>
-        <option v-for="country in countries" :value="country.ID">{{ country.Country }}</option>
-    </select>
+      {{ country.Country }}
+    </option>
+  </select>
 </template>
 
 <script>
